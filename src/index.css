@@ -138,12 +138,18 @@ a:link, a:visited {
   /* background-color: tomato; */
 }
 a.left {
-  color: rgb(245, 248, 250);
+  color: rgb(41 42 43);
   text-decoration : none;
   font-weight : 550;
   font-size : 16px;
   padding-top : 10px;
   justify-content : center;
+}
+
+@media (max-width:500px) {
+  a.left{
+    display: none;
+  }
 }
 .top img{
   width: 100%;
