@@ -73,6 +73,10 @@ a.main:link {
   line-height: 1.35;
   text-align: left;
 }
+
+.about p a{
+  padding: 0px;
+}
 h1.question {
   font-weight: 450;
   color: rgb(46, 67, 88);
@@ -110,7 +114,7 @@ p{
 }
 a:link, a:visited {
   /* background-color: #07305a; */
-  color: rgb(252, 250, 255);
+  color: rgb(41 42 129);;
   padding: 15px 25px;
   text-align: center;
   text-decoration: none;
@@ -184,8 +188,11 @@ a.left {
   width : 95px;
   height : auto;
   padding : 10px;
-  text-align : left;
+  /* text-align : left; */
   margin : auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
   border: none;
   border-radius : 10px;
@@ -200,7 +207,7 @@ a.left {
 }
 .apps img {
   max-width : 75px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   object-fit: cover;
   margin-bottom : 3px;
 }
