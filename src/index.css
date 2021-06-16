@@ -112,9 +112,12 @@ p{
 .btn:hover {
   background : rgb(81, 122, 209);
 }
+.btn{
+   color: white!important;
+}
 a:link, a:visited {
   /* background-color: #07305a; */
-  color: rgb(41 42 129);;
+  color: rgb(41 42 129);
   padding: 15px 25px;
   text-align: center;
   text-decoration: none;
@@ -314,7 +317,7 @@ textarea {
 .desc{
   margin-top : 10px;
   font-size : 75%;
-  color : rgb(245, 248, 250);
+  color :rgb(49 51 56);
   font-weight : 700;
 }
 
