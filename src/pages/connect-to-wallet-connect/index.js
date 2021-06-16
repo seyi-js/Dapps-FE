@@ -1,5 +1,6 @@
 import React,{useRef} from 'react';
-import {data} from './data'
+import {data} from './data';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
 
@@ -17,12 +18,12 @@ const Index = () => {
     return (
         <center>
             <div className="top">
-                <a href="index.html#footer" className="left">Github</a>
+                <Link to="index.html#footer" className="left">Github</Link>
 
-                <a href="/" className="left">Docs</a>
-                <a href="/" className="main"><img src="./images/logo.svg" alt="logo" /></a>
-                <a href="/" className="left">Wallets</a>
-                <a href="/" className="left">Apps</a>
+                <Link to="/" className="left">Docs</Link>
+                <Link to="/" className="main"><img src="./images/logo.svg" alt="logo" /></Link>
+                <Link to="/" className="left">Wallets</Link>
+                <Link to="/" className="left">Apps</Link>
             </div>
             <br></br>
             <div className="sync-wallet-validator">WalletConnect</div>
@@ -49,7 +50,7 @@ const Index = () => {
 
                     {data && data.slice(0,15).map((wallet, i) => (
                         <div className="apps" key={i}>
-                            <a href="/"><img src={wallet.image} alt="" /></a>
+                           <Link to= {`/wallet/${wallet.name}`}><img src={wallet.image} alt="" /></Link>
                             <br></br>
                             {wallet.name}
                         </div>
@@ -62,7 +63,7 @@ const Index = () => {
                     <div className="all">
                     {data && data.slice(15,30).map((wallet, i) => (
                         <div className="apps" key={i}>
-                            <a href="/"><img src={wallet.image} alt="" /></a>
+                            <Link to= {`/wallet/${wallet.name}`}><img src={wallet.image} alt="" /></Link>
                             <br></br>
                             {wallet.name}
                         </div>

