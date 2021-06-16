@@ -207,7 +207,7 @@ a.left {
 }
 .apps img {
   max-width : 75px;
-  /* border-radius: 50%; */
+  border-radius: 20%;
   object-fit: cover;
   margin-bottom : 3px;
 }
