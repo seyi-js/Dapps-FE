@@ -317,3 +317,19 @@ img.barcode {
   max-width : 250px;
   margin-top : 70px;
 }
+center.barcode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.img-barcode{
+  width:40%;
+ 
+}
+
+@media (max-width:500px) {
+  .img-barcode{
+    width:90%;
+  }
+}
